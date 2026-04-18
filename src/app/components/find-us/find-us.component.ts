@@ -23,7 +23,7 @@ export class FindUsComponent implements AfterViewInit {
     {
       icon: '📞',
       label: 'Reservations',
-      value: '+40779219100',
+      value: '<a href="tel: +40779219100">+40779219100</a>',
     },
   ];
 

@@ -108,6 +108,17 @@
   font-weight: 300;
 }
 
+.contact-card-value a{
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.3s;
+  
+  &:hover {
+    color: var(--gold);
+  }
+}
+
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
   .find-us-inner { gap: 3rem; }
