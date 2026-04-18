@@ -10,8 +10,7 @@ export class FooterComponent {
   year = new Date().getFullYear();
 
   socials = [
-    { label: 'Instagram', href: '#' },
-    { label: 'Pinterest', href: '#' },
-    { label: 'Facebook',  href: '#' },
+    { label: 'Instagram', href: 'https://www.instagram.com/madalin.zetmen/' },
+    { label: 'Facebook',  href: 'https://www.facebook.com/people/Zetmen/61566839835495/' },
   ];
 }
