@@ -11,6 +11,6 @@ export class FooterComponent {
 
   socials = [
     { label: 'Instagram', href: 'https://www.instagram.com/madalin.zetmen/' },
-    { label: 'Facebook',  href: 'https://www.facebook.com/people/Zetmen/61566839835495/' },
+    { label: 'Facebook',  href: 'https://www.facebook.com/people/ZetMen-Official/61586790017242/' },
   ];
 }
