@@ -13,7 +13,7 @@ export class FindUsComponent implements AfterViewInit {
     {
       icon: '📍',
       label: 'Address',
-      value: "Str. Exemplu 123, București",
+      value: " Strada Zorilor 16, Brașov",
     },
     {
       icon: '🕐',
