@@ -18,12 +18,12 @@ export class FindUsComponent implements AfterViewInit {
     {
       icon: '🕐',
       label: 'Hours',
-      value: 'Mon–Sat: 9:00 AM – 8:00 PM<br/>Sunday: 10:00 AM – 5:00 PM',
+      value: 'Mon–Fri: 9:00 AM – 8:00 PM',
     },
     {
       icon: '📞',
       label: 'Reservations',
-      value: 'contact@zetmansalon.com',
+      value: '+40779219100',
     },
   ];
 
