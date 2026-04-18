@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "zetMenSalon": {
+    "ZetMenSalon": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/zetMenSalon",
+            "outputPath": "dist/ZetMenSalon",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -41,8 +41,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "production": { "buildTarget": "zetMenSalon:build:production" },
-            "development": { "buildTarget": "zetMenSalon:build:development" }
+            "production": { "buildTarget": "ZetMenSalon:build:production" },
+            "development": { "buildTarget": "ZetMenSalon:build:development" }
           },
           "defaultConfiguration": "development"
         }
