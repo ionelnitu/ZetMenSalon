@@ -108,10 +108,11 @@
   font-weight: 300;
 }
 
-.contact-card-value a{
+:host ::ng-deep .contact-card-value a{
   color: var(--white);
   text-decoration: none;
-  transition: color 0.3s;
+  font-weight: 300;
+  font-size: 0.85rem;
   
   &:hover {
     color: var(--gold);
