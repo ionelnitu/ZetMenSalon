@@ -122,6 +122,20 @@
     color: var(--gold-dim);
   }
 }
+.hero-title-wrap {
+  display: inline-block;
+  position: relative;
+}
+
+.hero-tagline {
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 300;
+  text-align: center;
+  margin-top: -0.5rem; /* trage textul mai sus, mai aproape de titlu */
+}
 
 .scroll-line {
   width: 1px;
