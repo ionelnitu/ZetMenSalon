@@ -3,7 +3,7 @@
 ## 📁 Structura Proiectului
 
 ```
-noir-salon/
+zetMenSalon/
 ├── src/
 │   ├── index.html                        ← Entry HTML
 │   ├── main.ts                           ← Bootstrap Angular
@@ -62,7 +62,7 @@ npm install -g @angular/cli
 
 ### 3. Clonează / copiază proiectul, apoi instalează dependențele
 ```bash
-cd noir-salon
+cd zetMenSalon
 npm install
 ```
 
@@ -76,7 +76,7 @@ Deschide [http://localhost:4200](http://localhost:4200) în browser.
 ```bash
 ng build --base-href "/numele-repo-ului-tau/"
 ```
-Fișierele generate se află în `dist/noir-salon/browser/` — uploadează-le pe GitHub Pages.
+Fișierele generate se află în `dist/zetMenSalon/browser/` — uploadează-le pe GitHub Pages.
 
 ---
 

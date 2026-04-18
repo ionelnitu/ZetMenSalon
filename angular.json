@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "noir-salon": {
+    "zetMenSalon": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/noir-salon",
+            "outputPath": "dist/zetMenSalon",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -41,8 +41,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "production": { "buildTarget": "noir-salon:build:production" },
-            "development": { "buildTarget": "noir-salon:build:development" }
+            "production": { "buildTarget": "zetMenSalon:build:production" },
+            "development": { "buildTarget": "zetMenSalon:build:development" }
           },
           "defaultConfiguration": "development"
         }
