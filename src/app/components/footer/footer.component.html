@@ -1,0 +1,9 @@
+<footer>
+  <div class="footer-logo">ZetMen</div>
+  <div class="footer-copy">© {{ year }} NOIR Atelier. All rights reserved.</div>
+  <div class="footer-socials">
+    @for (social of socials; track social.label) {
+      <a [href]="social.href">{{ social.label }}</a>
+    }
+  </div>
+</footer>

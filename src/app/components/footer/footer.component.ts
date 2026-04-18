@@ -1,0 +1,17 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-footer',
+  standalone: true,
+  templateUrl: './footer.component.html',
+  styleUrl: './footer.component.scss',
+})
+export class FooterComponent {
+  year = new Date().getFullYear();
+
+  socials = [
+    { label: 'Instagram', href: '#' },
+    { label: 'Pinterest', href: '#' },
+    { label: 'Facebook',  href: '#' },
+  ];
+}

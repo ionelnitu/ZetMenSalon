@@ -1,0 +1,43 @@
+<section id="find-us">
+  <div class="find-us-inner">
+
+    <!-- Contact Info -->
+    <div class="reveal" #reveal>
+      <p class="section-label">Location</p>
+      <h2 class="section-title">Find <em>us</em></h2>
+      <p class="section-body">
+        Located in the most prestigious district of the city, NOIR welcomes you
+        seven days a week. Walk-ins welcome; appointments preferred.
+      </p>
+
+      <div class="contact-cards">
+        @for (info of contactInfo; track info.label) {
+          <div class="contact-card">
+            <div class="contact-icon">{{ info.icon }}</div>
+            <div>
+              <div class="contact-card-label">{{ info.label }}</div>
+              <div class="contact-card-value" [innerHTML]="info.value"></div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Map placeholder (replace with Google Maps iframe when ready) -->
+    <div class="find-us-map reveal" #reveal>
+      <div class="map-placeholder">
+        <div class="map-pin">
+          <div class="map-pin-dot"></div>
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2789.5247832076793!2d25.62001938485941!3d45.640282107155905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b35dee0ff8709f%3A0x2364a08cdcff2eba!2sZETMEN!5e0!3m2!1sen!2sro!4v1775314381784!5m2!1sen!2sro" 
+       width="600"
+       height="450" 
+       style="border:0;" 
+       allowfullscreen=""
+       loading="lazy" 
+       referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

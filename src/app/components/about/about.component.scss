@@ -1,0 +1,125 @@
+#about {
+  background: var(--black-soft);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: 'NOIR';
+    position: absolute;
+    font-family: var(--font-display);
+    font-size: 22vw;
+    font-weight: 600;
+    color: rgba(201,168,76,0.03);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+}
+
+.about-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+/* ─── IMAGE ─── */
+.about-image-wrap { position: relative; }
+
+.about-image {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  filter: saturate(0.6) brightness(0.85);
+  display: block;
+}
+
+.about-image-accent {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -1.5rem;
+  width: 60%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(201,168,76,0.3);
+  pointer-events: none;
+}
+
+.about-badge {
+  position: absolute;
+  top: 2rem;
+  left: -2rem;
+  background: var(--gold);
+  color: var(--black);
+  padding: 1.2rem 1.5rem;
+  text-align: center;
+
+  strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  span {
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+}
+
+/* ─── TEXT ─── */
+.about-features {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.feature-item {
+  border-left: 2px solid var(--gold-dim);
+  padding-left: 1rem;
+
+  strong {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+  }
+
+  span {
+    font-size: 0.78rem;
+    color: var(--white-dim);
+    font-weight: 300;
+  }
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .about-inner { gap: 3.5rem; }
+}
+
+@media (max-width: 768px) {
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 0 1.5rem;
+  }
+  .about-image-accent { display: none; }
+  .about-badge { left: 1rem; }
+  .about-features { grid-template-columns: 1fr; gap: 1rem; }
+  .section-body { max-width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .about-inner { padding: 0 1.2rem; }
+}

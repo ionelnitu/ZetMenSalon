@@ -1,0 +1,31 @@
+<!-- Mobile menu overlay -->
+<div class="mobile-menu" [class.open]="menuOpen()">
+  <a href="#about"   (click)="closeMenu()">About</a>
+  <a href="#find-us" (click)="closeMenu()">Find Us</a>
+  <a href="#ceo"     (click)="closeMenu()">Our Story</a>
+  <a href="#find-us" class="mobile-cta" (click)="closeMenu()">Book Now</a>
+</div>
+
+<!-- Navbar -->
+<nav [class.scrolled]="scrolled()">
+  <a class="nav-logo" href="#hero">ZetMen</a>
+
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#find-us">Find Us</a></li>
+    <li><a href="#ceo">Our Story</a></li>
+  </ul>
+
+  <a class="nav-cta" href="#find-us">Book Now</a>
+
+  <button
+    class="hamburger"
+    [class.open]="menuOpen()"
+    (click)="toggleMenu()"
+    aria-label="Toggle menu"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
