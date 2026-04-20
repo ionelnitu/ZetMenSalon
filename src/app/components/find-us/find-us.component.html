@@ -3,11 +3,10 @@
 
     <!-- Contact Info -->
     <div class="reveal" #reveal>
-      <p class="section-label">Location</p>
-      <h2 class="section-title">Find <em>us</em></h2>
+      <p class="section-label">Locație</p>
+      <h2 class="section-title">Găsește-<em>ne</em></h2>
       <p class="section-body">
-        Located in the most prestigious district of the city, NOIR welcomes you
-        seven days a week. Walk-ins welcome; appointments preferred.
+        Te așteptăm cu drag pentru o experienta premium.
       </p>
 
       <div class="contact-cards">
@@ -23,12 +22,13 @@
       </div>
     </div>
 
-    <!-- Map placeholder (replace with Google Maps iframe when ready) -->
+    <!-- Map -->
+     @if(cookieService.mapsConsent() === true){
     <div class="find-us-map reveal" #reveal>
       <div class="map-placeholder">
         <div class="map-pin">
           <div class="map-pin-dot"></div>
-               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2789.5247832076793!2d25.62001938485941!3d45.640282107155905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b35dee0ff8709f%3A0x2364a08cdcff2eba!2sZETMEN!5e0!3m2!1sen!2sro!4v1775314381784!5m2!1sen!2sro" 
+               <iframe [src]="mapsEmbedUrl()!"
        width="600"
        height="450" 
        style="border:0;" 
@@ -38,6 +38,29 @@
         </div>
       </div>
     </div>
+     }
+     @if (cookieService.mapsConsent() !== true) {
+        <div class="map-blocked">
+          <div class="map-blocked-icon">🗺️</div>
+          <p class="map-blocked-title">Harta nu este încărcată</p>
+          <p class="map-blocked-text">
+            @if (cookieService.mapsConsent() === false) {
+              Ai refuzat cookie-urile Google Maps.
+            } @else {
+              Acceptă cookie-urile pentru a vedea harta.
+            }
+          </p>
+          <button class="map-blocked-btn" (click)="cookieService.accept()">
+            Activează harta
+          </button>
+          @if (cookieService.mapsConsent() === false) {
+            <button class="map-reset-btn" (click)="cookieService.reset()">
+              Modifică preferințele
+            </button>
+          }
+        </div>
+      }
+
 
   </div>
 </section>

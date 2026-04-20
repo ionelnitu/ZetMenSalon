@@ -1,0 +1,109 @@
+.prices-page {
+  min-height: 100vh;
+  background: var(--black-soft);
+  padding: 10rem 0 6rem;
+  position: relative;
+
+  &::before {
+    content: 'PRICES';
+    position: absolute;
+    font-family: var(--font-display);
+    font-size: 18vw;
+    font-weight: 600;
+    color: rgba(201,168,76,0.03);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+}
+
+.prices-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+
+/* ─── HEADER ─── */
+.prices-header {
+  text-align: center;
+  animation: fadeUp 0.8s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.prices-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 1rem;
+
+  em {
+    font-style: italic;
+    color: var(--gold);
+  }
+}
+
+.prices-subtitle {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--white-dim);
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* ─── IMAGE ─── */
+.prices-image-wrap {
+  width: 100%;
+  border: 1px solid rgba(201,168,76,0.2);
+  position: relative;
+  animation: fadeUp 0.8s 0.2s ease both;
+  opacity: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: 8px;
+    bottom: 8px;
+    border: 1px solid rgba(201,168,76,0.1);
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+.prices-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── BACK BUTTONS ─── */
+.prices-back {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  animation: fadeUp 0.8s 0.4s ease both;
+  opacity: 0;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .prices-page { padding: 8rem 0 4rem; }
+  .prices-inner { gap: 2.5rem; padding: 0 1.5rem; }
+  .prices-back { flex-direction: column; align-items: center; }
+  .btn-primary, .btn-secondary { text-align: center; width: 200px; }
+}

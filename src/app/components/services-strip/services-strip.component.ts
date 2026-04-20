@@ -11,7 +11,6 @@ import { CommonModule } from '@angular/common';
 export class ServicesStripComponent {
   services = [
     'Precision Haircuts',
-    'Balayage & Highlights',
     'Keratin Treatments',
     'Bridal Styling',
     'Color Correction',

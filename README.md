@@ -1,4 +1,4 @@
-# NOIR — Luxury Hair Salon Website (Angular 17)
+# ZetMen — Luxury Hair Salon Website (Angular 17)
 
 ## 📁 Structura Proiectului
 

@@ -66,12 +66,12 @@
   animation: fadeUp 1.2s 0.4s ease both;
   opacity: 0;
 
- .zet {
+ .zet{
   color: #FF6B2B;
   font-style: normal;
 }
 
-.men {
+.men{
   color: var(--white);
   font-weight: bold;
 }
@@ -80,6 +80,17 @@
   font-size: 20px;
 }
 }
+.coming{
+  font-size: 3rem;
+  color: #FF6B2B;
+  font-style: normal;
+}
+.soon{
+  color: var(--white);
+  font-size: 3rem;
+  font-weight: bold;
+}
+
 
 .hero-subtitle {
   font-size: 0.75rem;
@@ -121,6 +132,7 @@
   }
 }
 .hero-title-wrap {
+  size: 0.8rem;
   display: inline-block;
   position: relative;
 }

@@ -1,0 +1,30 @@
+@if (!cookieService.hasDecided) {
+  <div class="cookie-overlay">
+    <div class="cookie-banner">
+
+      <div class="cookie-icon">🍪</div>
+
+      <div class="cookie-content">
+        <h3 class="cookie-title">Acest site folosește cookie-uri</h3>
+        <p class="cookie-text">
+          Folosim <strong>Google Maps</strong> pentru a-ți arăta locația salonului.
+          Harta încarcă cookie-uri de la Google. Poți accepta sau refuza
+          încărcarea acestora. Alegerea ta va fi salvată pentru vizitele viitoare.
+        </p>
+        <a class="cookie-policy-link" href="/privacy-policy" target="_blank">
+          Politica de confidențialitate →
+        </a>
+      </div>
+
+      <div class="cookie-actions">
+        <button class="btn-accept" (click)="cookieService.accept()">
+          Acceptă harta
+        </button>
+        <button class="btn-decline" (click)="cookieService.decline()">
+          Refuză
+        </button>
+      </div>
+
+    </div>
+  </div>
+}
