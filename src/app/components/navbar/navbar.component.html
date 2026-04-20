@@ -2,7 +2,7 @@
 <div class="mobile-menu" [class.open]="menuOpen()">
   <button class="mobile-close" (click)="closeMenu()">✕</button>
   <a routerLink="/prices" (click)="closeMenu()">Prices</a>
-  <a routerLink="/"   (click)="closeMenu()">About</a>
+  <a [routerLink]="['/about-me']" fragment="ceo"(click)="closeMenu()">About</a>
   <a routerLink="/" (click)="closeMenu()">Find Us</a>
   <a routerLink="/" class="mobile-cta" (click)="closeMenu()">Book Now</a>
 </div>
@@ -16,7 +16,7 @@
 
   <ul class="nav-links">
     <li><a routerLink="/prices" >Prices</a></li>
-    <li><a [routerLink]="['/']" fragment="about">About</a></li>
+    <li><a [routerLink]="['/about-me']" fragment="ceo">About</a></li>
     <li><a [routerLink]="['/']" fragment="find-us">Find Us</a></li>
   </ul>
 

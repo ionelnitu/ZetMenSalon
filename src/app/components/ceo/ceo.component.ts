@@ -2,6 +2,7 @@ import { Component, AfterViewInit, ElementRef, QueryList, ViewChildren } from '@
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { FooterComponent } from '../footer/footer.component';
 
 interface Accomplishment {
   image: string[];
@@ -13,7 +14,7 @@ interface Accomplishment {
 @Component({
   selector: 'app-ceo',
   standalone: true,
-  imports: [CommonModule, RouterLink, NavbarComponent],
+  imports: [CommonModule, RouterLink, NavbarComponent,FooterComponent],
   templateUrl: './ceo.component.html',
   styleUrl: './ceo.component.scss',
 })
@@ -53,7 +54,7 @@ export class CeoComponent implements AfterViewInit {
     },
     {
       image: ['assets/6thCertificate.jpeg', 'assets/7thCertificate.jpeg'],
-      year: '2026',
+      year: '18th January 2026',
       title: 'Inspire Barber Academy Brasov',
       desc: 'Locul unde l-am cunoscut pe George Hali. Un profesionist extraordinar, un om de o calitate rar intalnita si un prieten de nadejde. Aici am avut parte de o experienta cu o incarcatura de informatii practice si teoretice pe care nu le-am intalnit nicaieri.  Intr-o atmosfera relaxanta si plina de sens am obtinut extrem de multe tipsuri de a obtine rezultate extraordinare intr-un timp mult mai scurt. George este un maestru al rabdarii si al creativitatii, de care are nevoie oricine macar o data in cariera. Am practicat fade-uri, forme de top, forme si vopsit barba intr-o maniera dincolo de limitele stricte ale tehnicilor de baza. Bagajul de informatii cu care am plecat mi-a imbunatatit calitatea lucrarilor, timpul de lucru si mi-a oferit mai multa incredere.',
     }, {
@@ -64,7 +65,7 @@ export class CeoComponent implements AfterViewInit {
     },
     {
       image: ['assets/2ndCertificate.jpg'],
-      year: '25th October 2025',
+      year: '25th October 2024',
       title: 'The Quarters Academy Birmingham,',
       desc: 'Aici am avut curs intensiv de barbering cu o echipa extraordinara. Am studiat partea teoretica si practica la un nivel academic in ceea ce priveste tehnicile de fade si foarfeca, tipurile de par, anatomia scalpului si alegerea formei tunsorii. Un curs care te ajuta sa intelegi daca mergi mai departe sau nu.  Unde doar pasiunea si dorinta de a fi mai bun ca ieri, sunt criteriile de baza.',
     }
