@@ -15,10 +15,6 @@
     pointer-events: none;
   }
 }
-.image{
-  width: 100%;
-  height: inherit;
-}
  .hero-tagline {
   font-size: 0.4rem;
   letter-spacing: 0.3em;
@@ -180,10 +176,22 @@ p{
     .acc-year { color: rgba(201,168,76,0.25); }
   }
 }
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  width: 100%;
+}
 
+.image-container img {
+  width: 100%;       /* IMPORTANT */
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
 .acc-year {
   font-family: var(--font-display);
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 300;
   color: rgba(201,168,76,0.12);
   line-height: 1;

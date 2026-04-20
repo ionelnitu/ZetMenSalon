@@ -42,9 +42,15 @@
     <div class="accomplishments-grid reveal" #reveal>
       @for (acc of accomplishments; track acc.year + acc.title) {
       <div class="accomplishment-card">
+        <div class="image-container">
         <a href={{acc.image}} target="_blank">
-          <img src={{acc.image}} alt="poza" class="thumbnail">
+          @for (img of acc.image; track img){
+          <img src={{img}} alt="poza" class="thumbnail">
+          }
+
         </a>
+        </div>
+
         <div class="acc-year">{{ acc.year }}</div>
         <div class="acc-title">{{ acc.title }}</div>
         <div class="acc-desc">{{ acc.desc }}</div>
