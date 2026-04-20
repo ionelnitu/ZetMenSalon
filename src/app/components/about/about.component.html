@@ -1,13 +1,10 @@
 <section id="about">
   <div class="about-inner">
 
-    
+
     <div class="about-image-wrap reveal" #reveal>
-      <img
-        class="about-image"
-        src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80"
-        alt="Inside ZetMen salon"
-      />
+      <img class="about-image" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80"
+        alt="Inside ZetMen salon" />
       <div class="about-image-accent"></div>
       <div class="about-badge">
         <strong>15</strong>
@@ -15,23 +12,29 @@
       </div>
     </div>
 
-    
+
     <div class="about-text reveal" #reveal>
-      <p class="section-label">ZetMen</p>
       <h2 class="section-title">Male Image & Grooming</h2>
       <p class="section-body">
-        ZetMen is a sanctuary of refinement nestled in the heart of the city.
-        We believe every visit should be a transformative experience — where
-        skilled artisans, premium materials, and an atmosphere of quiet luxury converge.
-        <a  [routerLink]="['/about-me']" fragment="ceo">Find More About us</a>
+        [ZETMEN] este creat pentru a fi un reper al barbatului modern care pune pret pe ingrijire si considera
+        importanta imaginea masculina.
+        Un loc cu o atmosfera sofisticata in inima cartierului Astra, in care vei simti diferenta de la prima deschidere
+        a usii. Imaginea premium a locatiei, gustul perfect al unei cafele din partea casei sau un refresh cu o bautura
+        racoritoare.
+        Aici vei beneficia de servicii profesionale de frizerie clasica si moderna la cele mai inalte standarde, cu cele
+        mai bune scule de pe piata la nivel national si international.
+        Pentru cei care doresc servicii exclusiviste pot opta pentru pachetele ZETMEN cu ingrijire avansata si SPA
+        facial.
+        [ZETMEN] locul unde timpul este de calitate dar nu se grabeste niciodata. Simte diferenta!
+        <a [routerLink]="['/about-me']" fragment="ceo">Afla mai multe.</a>
       </p>
 
       <div class="about-features">
         @for (feature of features; track feature.title) {
-          <div class="feature-item">
-            <strong>{{ feature.title }}</strong>
-            <span>{{ feature.desc }}</span>
-          </div>
+        <div class="feature-item">
+          <strong>{{ feature.title }}</strong>
+          <span>{{ feature.desc }}</span>
+        </div>
         }
       </div>
     </div>

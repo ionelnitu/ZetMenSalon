@@ -1,24 +1,50 @@
 <footer>
-  <div class="footer-logo">
-    <p>[<span class="zet">ZET</span><span class="men">MEN</span>]</p>
-    <p class="hero-tagline">Male Image & Grooming</p>
+
+  <!-- Rândul 1: Logo + Copyright -->
+  <div class="footer-top">
+    <div class="footer-brand">
+      <p class="footer-logo">
+        [<span class="zet">ZET</span><span class="men">MEN</span>]
+      </p>
+      <p class="footer-tagline">Male Image &amp; Grooming</p>
+    </div>
+    <div class="footer-copy">© {{ year }} ZETMEN. All rights reserved.</div>
   </div>
 
-  <div class="footer-copy">© {{ year }} ZETMEN. All rights reserved.</div>
+  <div class="footer-divider"></div>
 
+  <!-- Rândul 2: Social + Legal + ANPC -->
   <div class="footer-bottom">
+
     <div class="footer-socials">
       @for (social of socials; track social.label) {
-        <a [href]="social.href">{{ social.label }}</a>
+        <a [href]="social.href" target="_blank">{{ social.label }}</a>
       }
     </div>
-<div class="footer-legal">
+
+    <div class="footer-legal">
       <a routerLink="/privacy">Confidențialitate</a>
       <span class="footer-sep">·</span>
-      <br>
       <button class="cookie-reset-btn" (click)="resetCookies()">
-        Resetează preferințe cookie
+        Resetează cookie
       </button>
     </div>
+
+    <div class="footer-anpc">
+      <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="nofollow">
+        <img
+          src="https://etamade-com.github.io/anpc-sal-sol-logo/anpc-sal.svg"
+          alt="Solutionarea Alternativa a Litigiilor"
+        />
+      </a>
+      <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="nofollow">
+        <img
+          src="https://etamade-com.github.io/anpc-sal-sol-logo/anpc-sol.svg"
+          alt="Solutionarea Online a Litigiilor"
+        />
+      </a>
+    </div>
+
   </div>
+
 </footer>
