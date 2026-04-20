@@ -13,7 +13,7 @@ import { CookieBannerComponent } from "./components/cookie-banner/cookie-banner.
   imports: [
     NavbarComponent, HeroComponent, AboutComponent,
     ServicesStripComponent, FindUsComponent, FooterComponent,
-    CookieBannerComponent,
+    CookieBannerComponent
   ],
   template: `
     <app-cookie-banner></app-cookie-banner>
