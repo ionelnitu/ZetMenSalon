@@ -19,6 +19,26 @@
   width: 100%;
   height: inherit;
 }
+ .hero-tagline {
+  font-size: 0.4rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+   font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-weight: 300;
+  text-align: center;
+  margin-top: -0.2rem; /* trage textul mai sus, mai aproape de titlu */
+}
+.men {
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+p{
+  font-size:1.5rem;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
 .ceo-inner {
   max-width: 1200px;
   margin: 0 auto;

@@ -1,6 +1,7 @@
 import { Component, AfterViewInit, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 interface Accomplishment {
   image: string;
@@ -12,7 +13,7 @@ interface Accomplishment {
 @Component({
   selector: 'app-ceo',
   standalone: true,
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule,RouterLink,NavbarComponent],
   templateUrl: './ceo.component.html',
   styleUrl: './ceo.component.scss',
 })
@@ -39,15 +40,15 @@ export class CeoComponent implements AfterViewInit {
       desc: 'Aici am avut curs intensiv de barbering cu o echipa extraordinara. Am studiat partea teoretica si practica la un nivel academic in ceea ce priveste tehnicile de fade si foarfeca, tipurile de par, anatomia scalpului si alegerea formei tunsorii. Un curs care te ajuta sa intelegi daca mergi mai departe sau nu.  Unde doar pasiunea si dorinta de a fi mai bun ca ieri, sunt criteriile de baza.',
     },
     {
-      image: '',
-      year: '2022',
-      title: 'Most Influential Stylist',
-      desc: 'Named among the top 10 most influential hair artists shaping the industry.',
+      image: 'assets/3rdCertificate.jpeg',
+      year: '2025',
+      title: 'Cognitive Academy',
+      desc: 'un loc mic si chochet din inima Londrei. Creatorul acestui concept este extraordinarul Sean Moore. Un profesionist care parca vine dintr-o alta dimensiune. Fiecare taietura de foarfeca are o poveste si creeaza o alta noua.  Tot ce am invatat aici a fost sa lasi imaginatia sa te ghideze, sa nu trasezi linii rigide si sa creezi perfectiunea din imperfectiuni. Sean este un creator si un mentor de exceptie, pot spune fara a exagera, unic in ceea ce face.A fost o experienta care mi-a dat aripi si m-a ghidat catre o altfel de abordare a acestei frumoase meserii. O meserie atat de complexa care poate fi dusa la nivel de arta doar prin pasiune si prin dorinta de a te simti o parte din ceea de creezi.Cu astfel de experiente intelegi ca taiatul parului nu este atat de simplu pana nu inveti sa creezi o conexiune intre tehnica si libertatea de a-ti folosi imaginatia.',
     },
-    {image: '',
-      year: '2020',
-      title: 'Entrepreneur of the Year',
-      desc: 'Awarded for pioneering sustainability practices in high-end salon operations.',
+    {image: 'assets/4thCertificate.jpeg',
+      year: '2025',
+      title: 'The Barber Bash',
+      desc: ' o echipa extraordinara plina de energie, avandu-i protagonisti pe Brodie Raeside si Ollie Foster. Aici am invatat sa iti oferi libertatea de a interpreta fiecare tunsoare fara a urma tehnici stricte. A nu se confunda cu ignorarea tehnicilor de baza a tunsorii, ci tot ce tine de modul in care le aplici si cand.Un traning care te face dupa 8-10 ore sa pleci cu mai multa energie decat ai avut cand ai venit. Am plecat cu ideea ca atunci cand mintea nu e ingradita de prejudecati, creatia isi face loc. Iar tot ce faci este parte din povestea ta, fara a pierde o secunda din a face ce iti place si ce te face fericit.',
     },
     {image: '',
       year: '2018',

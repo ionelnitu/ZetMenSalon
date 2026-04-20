@@ -16,8 +16,8 @@
 
   <ul class="nav-links">
     <li><a routerLink="/prices" >Prices</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#find-us">Find Us</a></li>
+    <li><a [routerLink]="['/']" fragment="about">About</a></li>
+    <li><a [routerLink]="['/']" fragment="find-us">Find Us</a></li>
   </ul>
 
   <a class="nav-cta" href="tel: +40779219100">Book Now</a>
