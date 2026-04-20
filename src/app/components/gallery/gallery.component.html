@@ -1,0 +1,107 @@
+<div class="gallery-wrap">
+
+  <!-- Header -->
+  <div class="gallery-header">
+    <p class="section-label">Evenimente &amp; Formare</p>
+    <h2 class="section-title">Momente din <em>activitate</em></h2>
+    <p class="gallery-disclaimer">
+      Apare în vreo fotografie și dorești eliminarea ei?
+      <a href="tel:+40700000000">Contactează-ne</a> — o eliminăm în 72h.
+    </p>
+  </div>
+
+  <!-- Slider -->
+  <div class="gallery-slider">
+
+    <!-- Buton Prev -->
+    <button
+      class="gallery-arrow prev"
+      (click)="prev()"
+      [disabled]="!canPrev()"
+      aria-label="Anterior"
+    >
+      &#8592;
+    </button>
+
+    <!-- Imagini vizibile -->
+    <div class="gallery-track">
+      @for (img of visibleImages(); track img.src; let i = $index) {
+        <div class="gallery-item" (click)="openLightbox(i)">
+          <div class="gallery-img-wrap">
+            <img [src]="img.src" [alt]="img.alt" loading="lazy" />
+            <div class="gallery-overlay">
+              <span class="gallery-zoom">&#8599;</span>
+            </div>
+          </div>
+          <div class="gallery-caption">
+            <span class="gallery-event">{{ img.event }}</span>
+            <span class="gallery-location">{{ img.location }} · {{ img.year }}</span>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Buton Next -->
+    <button
+      class="gallery-arrow next"
+      (click)="next()"
+      [disabled]="!canNext()"
+      aria-label="Următor"
+    >
+      &#8594;
+    </button>
+
+  </div>
+
+  <!-- Dots -->
+  <div class="gallery-dots">
+    @for (dot of [].constructor(totalDots()); track $index) {
+      <button
+        class="gallery-dot"
+        [class.active]="activeDot() === $index"
+        (click)="goToDot($index)"
+        [attr.aria-label]="'Pagina ' + ($index + 1)"
+      ></button>
+    }
+  </div>
+
+</div>
+
+<!-- Lightbox -->
+@if (lightboxOpen()) {
+  <div class="lightbox-overlay" (click)="closeLightbox()">
+    <div class="lightbox-box" (click)="$event.stopPropagation()">
+
+      <button class="lightbox-close" (click)="closeLightbox()">✕</button>
+
+      <button
+        class="lightbox-arrow prev"
+        (click)="lightboxPrev()"
+        [disabled]="lightboxIndex() === 0"
+      >&#8592;</button>
+
+      <div class="lightbox-img-wrap">
+        <img
+          [src]="lightboxImage().src"
+          [alt]="lightboxImage().alt"
+        />
+      </div>
+
+      <button
+        class="lightbox-arrow next"
+        (click)="lightboxNext()"
+        [disabled]="lightboxIndex() === images.length - 1"
+      >&#8594;</button>
+
+      <div class="lightbox-caption">
+        <strong>{{ lightboxImage().event }}</strong>
+        <span>{{ lightboxImage().location }} · {{ lightboxImage().year }}</span>
+      </div>
+
+      <div class="lightbox-counter">
+        {{ lightboxIndex() + 1 }} / {{ images.length }}
+      </div>
+
+    </div>
+  </div>
+}
