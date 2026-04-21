@@ -27,17 +27,23 @@ export class CeoComponent implements AfterViewInit {
   lightboxImages = signal<string[]>([]);
   lightboxIndex = signal(0);
 
-  openLightbox(images: string[], startIndex = 0): void {
-    this.lightboxImages.set(images);
-    this.lightboxIndex.set(startIndex);
-    this.lightboxOpen.set(true);
-    document.body.style.overflow = 'hidden';
-  }
+openLightbox(images: string[], startIndex = 0): void {
+  this.lightboxImages.set(images);
+  this.lightboxIndex.set(startIndex);
+  this.lightboxOpen.set(true);
+  document.body.style.overflow = 'hidden';
+  // ascunde navbar
+  const navbar = document.querySelector('nav') as HTMLElement;
+  if (navbar) navbar.style.display = 'none';
+}
 
-  closeLightbox(): void {
-    this.lightboxOpen.set(false);
-    document.body.style.overflow = '';
-  }
+closeLightbox(): void {
+  this.lightboxOpen.set(false);
+  document.body.style.overflow = '';
+  // reafiseaza navbar
+  const navbar = document.querySelector('nav') as HTMLElement;
+  if (navbar) navbar.style.display = '';
+}
 
   lightboxPrev(): void {
     if (this.lightboxIndex() > 0) {
@@ -54,12 +60,12 @@ export class CeoComponent implements AfterViewInit {
   @HostListener('window:keydown', ['$event'])
   onKey(event: KeyboardEvent): void {
     if (!this.lightboxOpen()) return;
-    if (event.key === 'ArrowLeft')  this.lightboxPrev();
+    if (event.key === 'ArrowLeft') this.lightboxPrev();
     if (event.key === 'ArrowRight') this.lightboxNext();
-    if (event.key === 'Escape')     this.closeLightbox();
+    if (event.key === 'Escape') this.closeLightbox();
   }
 
- 
+
 
 
   accomplishments: Accomplishment[] = [
@@ -109,42 +115,138 @@ export class CeoComponent implements AfterViewInit {
 
   galleryImages: GalleryImage[] = [
     {
-      src: 'assets/images/events/event-01.jpg',
+      src: 'assets/gallery/picture1.jpeg',
       alt: 'Campionat de barbering 2024',
       event: 'Campionat Național de Barbering',
       location: 'București',
       year: '2024',
     },
     {
-      src: 'assets/images/events/event-02.jpg',
+      src: 'assets/gallery/picture2.jpeg',
       alt: 'Curs de formare avansată',
       event: 'Curs de Formare Avansată',
       location: 'Cluj-Napoca',
       year: '2023',
     },
     {
-      src: 'assets/images/events/event-03.jpg',
+      src: 'assets/gallery/picture3.jpeg',
       alt: 'Expoziție profesională',
       event: 'Expoziție Profesională Hair Expo',
       location: 'Timișoara',
       year: '2023',
     },
     {
-      src: 'assets/images/events/event-04.jpg',
+      src: 'assets/gallery/picture4.jpeg',
       alt: 'Workshop internațional',
       event: 'Workshop Internațional',
       location: 'Milano, Italia',
       year: '2022',
     },
     {
-      src: 'assets/images/events/event-05.jpg',
+      src: 'assets/gallery/picture5.jpeg',
       alt: 'Competiție regională',
       event: 'Competiție Regională',
       location: 'Brașov',
       year: '2022',
     },
     {
-      src: 'assets/images/events/event-06.jpg',
+      src: 'assets/gallery/picture6.jpeg',
+      alt: 'Masterclass tehnici moderne',
+      event: 'Masterclass Tehnici Moderne',
+      location: 'București',
+      year: '2021',
+    },
+    {
+      src: 'assets/gallery/picture7.jpeg',
+      alt: 'Masterclass tehnici moderne',
+      event: 'Masterclass Tehnici Moderne',
+      location: 'București',
+      year: '2021',
+    },
+    {
+      src: 'assets/gallery/picture8.jpeg',
+      alt: 'Masterclass tehnici moderne',
+      event: 'Masterclass Tehnici Moderne',
+      location: 'București',
+      year: '2021',
+    },
+    {
+      src: 'assets/gallery/picture9.jpeg',
+      alt: 'Masterclass tehnici moderne',
+      event: 'Masterclass Tehnici Moderne',
+      location: 'București',
+      year: '2021',
+    },
+    {
+      src: 'assets/gallery/picture10.jpeg',
+      alt: 'Masterclass tehnici moderne',
+      event: 'Masterclass Tehnici Moderne',
+      location: 'București',
+      year: '2021',
+    },
+    {
+      src: 'assets/gallery/picture11.jpeg',
+      alt: 'Masterclass tehnici moderne',
+      event: 'Masterclass Tehnici Moderne',
+      location: 'București',
+      year: '2021',
+    },
+    {
+      src: 'assets/gallery/picture12.jpeg',
+      alt: 'Masterclass tehnici moderne',
+      event: 'Masterclass Tehnici Moderne',
+      location: 'București',
+      year: '2021',
+    }, {
+      src: 'assets/zetmen/picture1.jpeg',
+      alt: 'Masterclass tehnici moderne',
+      event: 'Masterclass Tehnici Moderne',
+      location: 'București',
+      year: '2021',
+    },{
+      src: 'assets/zetmen/picture5.jpeg',
+      alt: 'Masterclass tehnici moderne',
+      event: 'Masterclass Tehnici Moderne',
+      location: 'București',
+      year: '2021',
+    },{
+      src: 'assets/zetmen/picture6.jpeg',
+      alt: 'Masterclass tehnici moderne',
+      event: 'Masterclass Tehnici Moderne',
+      location: 'București',
+      year: '2021',
+    },{
+      src: 'assets/zetmen/picture4.jpeg',
+      alt: 'Masterclass tehnici moderne',
+      event: 'Masterclass Tehnici Moderne',
+      location: 'București',
+      year: '2021',
+    },{
+      src: 'assets/zetmen/picture2.jpeg',
+      alt: 'Masterclass tehnici moderne',
+      event: 'Masterclass Tehnici Moderne',
+      location: 'București',
+      year: '2021',
+    },{
+      src: 'assets/zetmen/picture3.jpeg',
+      alt: 'Masterclass tehnici moderne',
+      event: 'Masterclass Tehnici Moderne',
+      location: 'București',
+      year: '2021',
+    },{
+      src: 'assets/zetmen/picture7.jpeg',
+      alt: 'Masterclass tehnici moderne',
+      event: 'Masterclass Tehnici Moderne',
+      location: 'București',
+      year: '2021',
+    },{
+      src: 'assets/zetmen/picture8.jpeg',
+      alt: 'Masterclass tehnici moderne',
+      event: 'Masterclass Tehnici Moderne',
+      location: 'București',
+      year: '2021',
+    },{
+      src: 'assets/zetmen/picture9.jpeg',
       alt: 'Masterclass tehnici moderne',
       event: 'Masterclass Tehnici Moderne',
       location: 'București',

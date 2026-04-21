@@ -73,17 +73,22 @@ export class GalleryComponent {
     this.currentIndex.set(dotIndex * this.visibleCount());
   }
 
-  openLightbox(index: number): void {
-    // index relativ la visibleImages → index absolut
-    this.lightboxIndex.set(this.currentIndex() + index);
-    this.lightboxOpen.set(true);
-    document.body.style.overflow = 'hidden';
-  }
+openLightbox(index: number): void {
+  this.lightboxIndex.set(this.currentIndex() + index);
+  this.lightboxOpen.set(true);
+  document.body.style.overflow = 'hidden';
+  // ascunde navbar
+  const navbar = document.querySelector('nav') as HTMLElement;
+  if (navbar) navbar.style.display = 'none';
+}
 
-  closeLightbox(): void {
-    this.lightboxOpen.set(false);
-    document.body.style.overflow = '';
-  }
+closeLightbox(): void {
+  this.lightboxOpen.set(false);
+  document.body.style.overflow = '';
+  // reafiseaza navbar
+  const navbar = document.querySelector('nav') as HTMLElement;
+  if (navbar) navbar.style.display = '';
+}
 
   lightboxPrev(): void {
     if (this.lightboxIndex() > 0) {
