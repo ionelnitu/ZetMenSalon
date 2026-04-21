@@ -59,12 +59,8 @@ export class CeoComponent implements AfterViewInit {
     if (event.key === 'Escape')     this.closeLightbox();
   }
 
-  // ─── Date ───
-  stats = [
-    { number: '20+', label: 'Years Experience' },
-    { number: '12',  label: 'Industry Awards'  },
-    { number: '3',   label: 'Published Books'  },
-  ];
+ 
+
 
   accomplishments: Accomplishment[] = [
     {
