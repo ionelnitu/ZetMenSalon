@@ -69,7 +69,7 @@
 
 <!-- Lightbox -->
 @if (lightboxOpen()) {
-  <div class="lightbox-overlay" (click)="closeLightbox()">
+  <div class="lightbox-overlay" #lightboxEl (click)="closeLightbox()">
     <div class="lightbox-box" (click)="$event.stopPropagation()">
 
       <button class="lightbox-close" (click)="closeLightbox()">✕</button>

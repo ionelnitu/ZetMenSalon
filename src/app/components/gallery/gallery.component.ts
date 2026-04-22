@@ -4,6 +4,8 @@ import {
   signal,
   computed,
   HostListener,
+  ElementRef,
+  ViewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -23,6 +25,7 @@ export interface GalleryImage {
   styleUrl: './gallery.component.scss',
 })
 export class GalleryComponent {
+  @ViewChild('lightboxEl') lightboxEl!: ElementRef;
   @Input() images: GalleryImage[] = [];
 
   currentIndex = signal(0);
@@ -77,7 +80,14 @@ openLightbox(index: number): void {
   this.lightboxIndex.set(this.currentIndex() + index);
   this.lightboxOpen.set(true);
   document.body.style.overflow = 'hidden';
-  // ascunde navbar
+
+  // exact ca la CEO — muta pe body ca sa scape de overflow:hidden din parinte
+  setTimeout(() => {
+    if (this.lightboxEl?.nativeElement) {
+      document.body.appendChild(this.lightboxEl.nativeElement);
+    }
+  });
+
   const navbar = document.querySelector('nav') as HTMLElement;
   if (navbar) navbar.style.display = 'none';
 }
@@ -85,7 +95,12 @@ openLightbox(index: number): void {
 closeLightbox(): void {
   this.lightboxOpen.set(false);
   document.body.style.overflow = '';
-  // reafiseaza navbar
+  const navbar = document.querySelector('nav') as HTMLElement;
+  if (navbar) navbar.style.display = '';
+}
+
+ngOnDestroy(): void {
+  document.body.style.overflow = '';
   const navbar = document.querySelector('nav') as HTMLElement;
   if (navbar) navbar.style.display = '';
 }
