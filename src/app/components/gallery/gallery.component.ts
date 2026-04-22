@@ -1,19 +1,22 @@
 import {
   Component,
-  Input,
+  OnInit,
+  OnDestroy,
   signal,
   computed,
   HostListener,
   ElementRef,
   ViewChild,
+  inject,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 export interface GalleryImage {
   src: string;
   alt: string;
-  event: string;   // ex: "Campionatul Național de Barbering 2023"
-  location: string; // ex: "București, România"
+  event: string;
+  location: string;
   year: string;
 }
 
@@ -24,70 +27,119 @@ export interface GalleryImage {
   templateUrl: './gallery.component.html',
   styleUrl: './gallery.component.scss',
 })
-export class GalleryComponent {
+export class GalleryComponent implements OnInit, OnDestroy {
   @ViewChild('lightboxEl') lightboxEl!: ElementRef;
-  @Input() images: GalleryImage[] = [];
+
+  private http = inject(HttpClient);
+
+  private _images = signal<GalleryImage[]>([]);
+
+  loading = signal(true);
+  error = signal(false);
+  isFading = signal(false);
 
   currentIndex = signal(0);
   lightboxOpen = signal(false);
   lightboxIndex = signal(0);
-  intervalId: any;
-  isFading = signal(false);
-  animationDuration = 400;
-  // Câte slide-uri sunt vizibile (3 pe desktop, 1 pe mobile)
   visibleCount = signal(3);
 
-  currentImage = computed(() => this.images[this.currentIndex()]);
-  lightboxImage = computed(() => this.images[this.lightboxIndex()]);
+  private intervalId: any;
+  private readonly FADE_DURATION = 400;
+  private readonly SLIDE_INTERVAL = 5000;
 
-  totalDots = computed(() =>
-    Math.ceil(this.images.length / this.visibleCount())
+  visibleImages = computed(() =>
+    this._images().slice(this.currentIndex(), this.currentIndex() + this.visibleCount())
   );
-
-  activeDot = computed(() =>
-    Math.floor(this.currentIndex() / this.visibleCount())
-  );
-
-  visibleImages = computed(() => {
-    const start = this.currentIndex();
-    return this.images.slice(start, start + this.visibleCount());
-  });
-
+  lightboxImage = computed(() => this._images()[this.lightboxIndex()]);
+  totalImages = computed(() => this._images().length);
+  totalDots = computed(() => Math.ceil(this._images().length / this.visibleCount()));
+  activeDot = computed(() => Math.floor(this.currentIndex() / this.visibleCount()));
   canPrev = computed(() => this.currentIndex() > 0);
-  canNext = computed(() =>
-    this.currentIndex() + this.visibleCount() < this.images.length
-  );
+  canNext = computed(() => this.currentIndex() + this.visibleCount() < this._images().length);
 
-next(): void {
-  if (!this.canNext()) return;
+  ngOnInit(): void {
+    this.setVisibleCount();
 
-  this.triggerFade(() => {
-    this.currentIndex.update((i) =>
-      Math.min(this.images.length - this.visibleCount(), i + this.visibleCount())
+    this.http.get<GalleryImage[]>('assets/gallery-images.json').subscribe({
+      next: (data) => {
+        this._images.set(data);
+        this.loading.set(false);
+        // porneste sliderul DOAR dupa ce imaginile sunt incarcate
+        this.startSlider();
+      },
+      error: (err) => {
+        console.error('Eroare galerie:', err);
+        this.error.set(true);
+        this.loading.set(false);
+      },
+    });
+  }
+
+  // fade + schimba imaginile
+  private triggerFade(changeFn: () => void): void {
+    if (this.isFading()) return;
+
+    this.isFading.set(true);
+
+    setTimeout(() => {
+      changeFn();
+      // mica pauza ca Angular sa randeze noile imagini
+      setTimeout(() => {
+        this.isFading.set(false);
+      }, 50);
+    }, this.FADE_DURATION);
+  }
+
+  private startSlider(): void {
+    this.intervalId = setInterval(() => {
+      this.triggerFade(() => {
+        if (this.canNext()) {
+          this.currentIndex.update(i =>
+            Math.min(this._images().length - this.visibleCount(), i + this.visibleCount())
+          );
+        } else {
+          this.currentIndex.set(0); // reset la inceput
+        }
+      });
+    }, this.SLIDE_INTERVAL);
+  }
+
+  private resetSlider(): void {
+    clearInterval(this.intervalId);
+    this.startSlider();
+  }
+
+  prev(): void {
+    if (!this.canPrev()) return;
+    this.resetSlider(); // reset timer la click manual
+    this.triggerFade(() =>
+      this.currentIndex.update(i => Math.max(0, i - this.visibleCount()))
     );
-  });
-}
+  }
 
-prev(): void {
-  if (!this.canPrev()) return;
-
-  this.triggerFade(() => {
-    this.currentIndex.update((i) =>
-      Math.max(0, i - this.visibleCount())
+  next(): void {
+    if (!this.canNext()) return;
+    this.resetSlider();
+    this.triggerFade(() =>
+      this.currentIndex.update(i =>
+        Math.min(this._images().length - this.visibleCount(), i + this.visibleCount())
+      )
     );
-  });
-}
+  }
 
   goToDot(dotIndex: number): void {
-    this.currentIndex.set(dotIndex * this.visibleCount());
+    this.resetSlider();
+    this.triggerFade(() =>
+      this.currentIndex.set(dotIndex * this.visibleCount())
+    );
   }
 
   openLightbox(index: number): void {
+    clearInterval(this.intervalId); // opreste sliderul cat timp e lightbox deschis
     this.lightboxIndex.set(this.currentIndex() + index);
     this.lightboxOpen.set(true);
     document.body.style.overflow = 'hidden';
 
-    // exact ca la CEO — muta pe body ca sa scape de overflow:hidden din parinte
     setTimeout(() => {
       if (this.lightboxEl?.nativeElement) {
         document.body.appendChild(this.lightboxEl.nativeElement);
@@ -103,20 +155,16 @@ prev(): void {
     document.body.style.overflow = '';
     const navbar = document.querySelector('nav') as HTMLElement;
     if (navbar) navbar.style.display = '';
+    this.startSlider(); // reporneste sliderul dupa inchidere
   }
 
-
-
   lightboxPrev(): void {
-    if (this.lightboxIndex() > 0) {
-      this.lightboxIndex.update((i) => i - 1);
-    }
+    if (this.lightboxIndex() > 0) this.lightboxIndex.update(i => i - 1);
   }
 
   lightboxNext(): void {
-    if (this.lightboxIndex() < this.images.length - 1) {
-      this.lightboxIndex.update((i) => i + 1);
-    }
+    if (this.lightboxIndex() < this._images().length - 1)
+      this.lightboxIndex.update(i => i + 1);
   }
 
   @HostListener('window:keydown', ['$event'])
@@ -129,38 +177,27 @@ prev(): void {
 
   @HostListener('window:resize')
   onResize(): void {
-    this.visibleCount.set(window.innerWidth < 768 ? 1 : 3);
+   this.setVisibleCount();
     this.currentIndex.set(0);
   }
 
-  ngOnInit(): void {
-    this.startSlider();
-    this.visibleCount.set(window.innerWidth < 768 ? 1 : 3);
+  private setVisibleCount(): void {
+  const w = window.innerWidth;
+  if (w < 480) {
+    this.visibleCount.set(1);      // telefoane mici → 2
+  } else if (w < 768) {
+    this.visibleCount.set(2);      // telefoane mari → 2
+  } else if (w < 1024) {
+    this.visibleCount.set(3);      // tablet → 2
+  } else {
+    this.visibleCount.set(3);      // desktop → 3
   }
+}
+
   ngOnDestroy(): void {
+    clearInterval(this.intervalId);
     document.body.style.overflow = '';
     const navbar = document.querySelector('nav') as HTMLElement;
     if (navbar) navbar.style.display = '';
-    clearInterval(this.intervalId);
   }
-
-  triggerFade(changeFn: () => void) {
-  if (this.isFading()) return; // anti spam
-
-  this.isFading.set(true);
-
-  setTimeout(() => {
-    changeFn();
-    this.isFading.set(false);
-  }, this.animationDuration);
-}
-startSlider() {
-  this.intervalId = setInterval(() => {
-    if (this.canNext()) {
-      this.next();
-    } else {
-      this.goToDot(0); // reset la început
-    }
-  }, 5000);
-}
 }

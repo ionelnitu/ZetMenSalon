@@ -39,6 +39,9 @@
   gap: 1.2rem;
   min-height: 280px;
   transition: opacity 1s ease;
+    &.fade {
+    opacity: 0; /* ← dispare */
+  }
 }
 
 /* ─── ITEM ─── */
