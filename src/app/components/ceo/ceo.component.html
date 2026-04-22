@@ -6,11 +6,7 @@
     <!-- CEO Header -->
     <div class="ceo-header reveal" #reveal>
       <div class="ceo-portrait-wrap">
-        <img
-          class="ceo-portrait"
-          src="assets/profile/picture.jpeg"
-          alt="CEO Portrait"
-        />
+        <img class="ceo-portrait" src="assets/profile/picture.jpeg" alt="CEO Portrait" />
         <div class="ceo-portrait-frame"></div>
       </div>
 
@@ -18,12 +14,12 @@
         <h2 class="ceo-name">Madalin <em>Manea</em></h2>
         <p class="ceo-title-text">Founder &amp; Creative Director</p>
         <p class="ceo-bio">
-          Cu o pregatire solida in industria barberingului si orientat in crearea unui concept menit sa ofere o
-          experienta superioara fiecarui client, vine cu servicii premium de hairstyling si SPA facial. Instruit in arta
-          ingrijirii parului de cei mai buni oameni din industrie, atat la nivel national cat si international din Marea
-          Britanie, Argentina si din Romania, s-a intors in Brasov cu un singur obiectiv: sa creeze un spatiu unde
-          presiunea timpului nu exista, fiecare minut este transformat intr-o experienta si unde detaliile fac
-          diferenta.
+          Cu o pregătire solidă în industria barberingului și orientat spre crearea unui concept menit să ofere o
+          experiență superioară fiecărui client, vine cu servicii premium de hairstyling și spa facial. Instruit în arta
+          îngrijirii părului de cei mai buni oameni din industrie, atât la nivel național, cât și internațional, din
+          Marea Britanie, Argentina și România, s-a întors în Brașov cu un singur obiectiv: să creeze un spațiu unde
+          presiunea timpului nu există, fiecare minut este transformat într-o experiență și unde detaliile fac
+          diferența.
         </p>
       </div>
     </div>
@@ -38,28 +34,25 @@
 
     <div class="accomplishments-grid reveal" #reveal>
       @for (acc of accomplishments; track acc.year + acc.title) {
-        <div class="accomplishment-card">
+      <div class="accomplishment-card">
 
-          <!-- Thumbnail diplome — click deschide lightbox, fara <a> -->
-          <div class="image-container">
-            @for (img of acc.image; track img; let i = $index) {
-              <div
-                class="thumbnail-wrap"
-                (click)="openLightbox(acc.image, i)"
-              >
-                <img [src]="img" [alt]="acc.title" class="thumbnail" />
-                <div class="thumbnail-overlay">
-                  <span>&#8599;</span>
-                </div>
-              </div>
-            }
+        <!-- Thumbnail diplome — click deschide lightbox, fara <a> -->
+        <div class="image-container">
+          @for (img of acc.image; track img; let i = $index) {
+          <div class="thumbnail-wrap" (click)="openLightbox(acc.image, i)">
+            <img [src]="img" [alt]="acc.title" class="thumbnail" />
+            <div class="thumbnail-overlay">
+              <span>&#8599;</span>
+            </div>
           </div>
-
-          <div class="acc-year">{{ acc.year }}</div>
-          <div class="acc-title">{{ acc.title }}</div>
-          <div class="acc-desc">{{ acc.desc }}</div>
-
+          }
         </div>
+
+        <div class="acc-year">{{ acc.year }}</div>
+        <div class="acc-title">{{ acc.title }}</div>
+        <div class="acc-desc">{{ acc.desc }}</div>
+
+      </div>
       }
     </div>
 
@@ -73,43 +66,33 @@
 
 <!-- Lightbox diplome -->
 @if (lightboxOpen()) {
-  <div class="lb-overlay" (click)="closeLightbox()">
-    <div class="lb-box" (click)="$event.stopPropagation()">
+<div class="lb-overlay" (click)="closeLightbox()">
+  <div class="lb-box" (click)="$event.stopPropagation()">
 
-      <!-- Buton inchidere -->
-      <button class="lb-close" (click)="closeLightbox()">✕</button>
+    <!-- Buton inchidere -->
+    <button class="lb-close" (click)="closeLightbox()">✕</button>
 
-      <!-- Sageata stanga -->
-      <button
-        class="lb-arrow prev"
-        (click)="lightboxPrev()"
-        [disabled]="lightboxIndex() === 0"
-      >&#8592;</button>
+    <!-- Sageata stanga -->
+    <button class="lb-arrow prev" (click)="lightboxPrev()" [disabled]="lightboxIndex() === 0">&#8592;</button>
 
-      <!-- Imaginea -->
-      <div class="lb-img-wrap">
-        <img
-          [src]="lightboxImages()[lightboxIndex()]"
-          alt="Diplomă"
-        />
-      </div>
-
-      <!-- Sageata dreapta -->
-      <button
-        class="lb-arrow next"
-        (click)="lightboxNext()"
-        [disabled]="lightboxIndex() === lightboxImages().length - 1"
-      >&#8594;</button>
-
-      <!-- Counter (apare doar daca sunt mai multe imagini) -->
-      @if (lightboxImages().length > 1) {
-        <div class="lb-counter">
-          {{ lightboxIndex() + 1 }} / {{ lightboxImages().length }}
-        </div>
-      }
-
+    <!-- Imaginea -->
+    <div class="lb-img-wrap">
+      <img [src]="lightboxImages()[lightboxIndex()]" alt="Diplomă" />
     </div>
+
+    <!-- Sageata dreapta -->
+    <button class="lb-arrow next" (click)="lightboxNext()"
+      [disabled]="lightboxIndex() === lightboxImages().length - 1">&#8594;</button>
+
+    <!-- Counter (apare doar daca sunt mai multe imagini) -->
+    @if (lightboxImages().length > 1) {
+    <div class="lb-counter">
+      {{ lightboxIndex() + 1 }} / {{ lightboxImages().length }}
+    </div>
+    }
+
   </div>
+</div>
 }
 
 <app-footer></app-footer>

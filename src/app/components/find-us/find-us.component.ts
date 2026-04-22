@@ -25,17 +25,17 @@ export class FindUsComponent implements AfterViewInit {
     {
       icon: '📍',
       label: 'Adresă',
-      value: 'Strada Zorilor 16, Brașov, Județ: Brașov',
+      value: 'Strada Zorilor 16, Brașov, Județ Brașov',
     },
     {
       icon: '🕐',
       label: 'Program',
-      value: 'Lun–Vin:09:00-20:00<br>',
+      value: 'Lun–Vin:09:00-19:00<br> Sam-Dum: Appointment Only',
     },
     {
       icon: '📞',
       label: 'Rezervări',
-      value: '<a href="tel:+40722123456">+40 722 123 456</a>',
+      value: '<a href="tel:+40 779 219 100">+40 779 219 100</a>',
     },
   ];
 

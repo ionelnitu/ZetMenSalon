@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-services-strip',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './services-strip.component.html',
   styleUrl: './services-strip.component.scss',
 })
 export class ServicesStripComponent {
+  paused = false;
+  constructor(private router: Router) {}
   services = [
     'Spa Facial',
     'Skin Fade',
@@ -23,5 +26,9 @@ export class ServicesStripComponent {
   // Duplicate for seamless infinite marquee
   get doubled() {
     return [...this.services, ...this.services];
+  }
+
+    goToPrices(): void {
+    this.router.navigate(['/prices']);
   }
 }

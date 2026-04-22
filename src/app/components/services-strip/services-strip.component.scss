@@ -8,7 +8,12 @@
   display: flex;
   gap: 4rem;
   white-space: nowrap;
+  cursor: pointer;
   animation: marquee 20s linear infinite;
+
+    &:hover {
+    animation-play-state: paused; /* ← se opreste la hover */
+  }
 }
 
 @keyframes marquee {
@@ -21,6 +26,9 @@
   align-items: center;
   gap: 1.5rem;
   flex-shrink: 0;
+   &:hover {
+    opacity: 0.7; /* ← feedback vizual la hover pe item */
+  }
 
   span {
     font-size: 0.7rem;
