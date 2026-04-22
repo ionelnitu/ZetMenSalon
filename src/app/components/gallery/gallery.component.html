@@ -24,7 +24,7 @@
     </button>
 
     <!-- Imagini vizibile -->
-    <div class="gallery-track">
+    <div class="gallery-track" [class.fade]="isFading()">
       @for (img of visibleImages(); track img.src; let i = $index) {
         <div class="gallery-item" (click)="openLightbox(i)">
           <div class="gallery-img-wrap">

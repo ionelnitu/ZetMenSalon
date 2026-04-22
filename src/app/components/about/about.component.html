@@ -24,15 +24,6 @@
         [ZETMEN] locul unde timpul este de calitate dar nu se grabeste niciodata. Simte diferenta!
         <a [routerLink]="['/about-me']" fragment="ceo">Afla mai multe.</a>
       </p>
-
-      <div class="about-features">
-        @for (feature of features; track feature.title) {
-        <div class="feature-item">
-          <strong>{{ feature.title }}</strong>
-          <span>{{ feature.desc }}</span>
-        </div>
-        }
-      </div>
     </div>
 
   </div>

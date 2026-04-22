@@ -31,7 +31,9 @@ export class GalleryComponent {
   currentIndex = signal(0);
   lightboxOpen = signal(false);
   lightboxIndex = signal(0);
-
+  intervalId: any;
+  isFading = signal(false);
+  animationDuration = 400;
   // Câte slide-uri sunt vizibile (3 pe desktop, 1 pe mobile)
   visibleCount = signal(3);
 
@@ -56,54 +58,54 @@ export class GalleryComponent {
     this.currentIndex() + this.visibleCount() < this.images.length
   );
 
-  prev(): void {
-    if (this.canPrev()) {
-      this.currentIndex.update((i) =>
-        Math.max(0, i - this.visibleCount())
-      );
-    }
-  }
+next(): void {
+  if (!this.canNext()) return;
 
-  next(): void {
-    if (this.canNext()) {
-      this.currentIndex.update((i) =>
-        Math.min(this.images.length - this.visibleCount(), i + this.visibleCount())
-      );
-    }
-  }
+  this.triggerFade(() => {
+    this.currentIndex.update((i) =>
+      Math.min(this.images.length - this.visibleCount(), i + this.visibleCount())
+    );
+  });
+}
+
+prev(): void {
+  if (!this.canPrev()) return;
+
+  this.triggerFade(() => {
+    this.currentIndex.update((i) =>
+      Math.max(0, i - this.visibleCount())
+    );
+  });
+}
 
   goToDot(dotIndex: number): void {
     this.currentIndex.set(dotIndex * this.visibleCount());
   }
 
-openLightbox(index: number): void {
-  this.lightboxIndex.set(this.currentIndex() + index);
-  this.lightboxOpen.set(true);
-  document.body.style.overflow = 'hidden';
+  openLightbox(index: number): void {
+    this.lightboxIndex.set(this.currentIndex() + index);
+    this.lightboxOpen.set(true);
+    document.body.style.overflow = 'hidden';
 
-  // exact ca la CEO — muta pe body ca sa scape de overflow:hidden din parinte
-  setTimeout(() => {
-    if (this.lightboxEl?.nativeElement) {
-      document.body.appendChild(this.lightboxEl.nativeElement);
-    }
-  });
+    // exact ca la CEO — muta pe body ca sa scape de overflow:hidden din parinte
+    setTimeout(() => {
+      if (this.lightboxEl?.nativeElement) {
+        document.body.appendChild(this.lightboxEl.nativeElement);
+      }
+    });
 
-  const navbar = document.querySelector('nav') as HTMLElement;
-  if (navbar) navbar.style.display = 'none';
-}
+    const navbar = document.querySelector('nav') as HTMLElement;
+    if (navbar) navbar.style.display = 'none';
+  }
 
-closeLightbox(): void {
-  this.lightboxOpen.set(false);
-  document.body.style.overflow = '';
-  const navbar = document.querySelector('nav') as HTMLElement;
-  if (navbar) navbar.style.display = '';
-}
+  closeLightbox(): void {
+    this.lightboxOpen.set(false);
+    document.body.style.overflow = '';
+    const navbar = document.querySelector('nav') as HTMLElement;
+    if (navbar) navbar.style.display = '';
+  }
 
-ngOnDestroy(): void {
-  document.body.style.overflow = '';
-  const navbar = document.querySelector('nav') as HTMLElement;
-  if (navbar) navbar.style.display = '';
-}
+
 
   lightboxPrev(): void {
     if (this.lightboxIndex() > 0) {
@@ -120,9 +122,9 @@ ngOnDestroy(): void {
   @HostListener('window:keydown', ['$event'])
   onKey(event: KeyboardEvent): void {
     if (!this.lightboxOpen()) return;
-    if (event.key === 'ArrowLeft')  this.lightboxPrev();
+    if (event.key === 'ArrowLeft') this.lightboxPrev();
     if (event.key === 'ArrowRight') this.lightboxNext();
-    if (event.key === 'Escape')     this.closeLightbox();
+    if (event.key === 'Escape') this.closeLightbox();
   }
 
   @HostListener('window:resize')
@@ -132,6 +134,33 @@ ngOnDestroy(): void {
   }
 
   ngOnInit(): void {
+    this.startSlider();
     this.visibleCount.set(window.innerWidth < 768 ? 1 : 3);
   }
+  ngOnDestroy(): void {
+    document.body.style.overflow = '';
+    const navbar = document.querySelector('nav') as HTMLElement;
+    if (navbar) navbar.style.display = '';
+    clearInterval(this.intervalId);
+  }
+
+  triggerFade(changeFn: () => void) {
+  if (this.isFading()) return; // anti spam
+
+  this.isFading.set(true);
+
+  setTimeout(() => {
+    changeFn();
+    this.isFading.set(false);
+  }, this.animationDuration);
+}
+startSlider() {
+  this.intervalId = setInterval(() => {
+    if (this.canNext()) {
+      this.next();
+    } else {
+      this.goToDot(0); // reset la început
+    }
+  }, 5000);
+}
 }

@@ -38,6 +38,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1.2rem;
   min-height: 280px;
+  transition: opacity 1s ease;
 }
 
 /* ─── ITEM ─── */
@@ -283,11 +284,17 @@ position: fixed !important;
   color: var(--white-dim);
   opacity: 0.5;
 }
+.gallery-track.fade {
+  opacity: 0;
+}
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
-  .gallery-track { grid-template-columns: 1fr; }
+  .gallery-track { grid-template-columns: 1fr; transition: opacity 0.4s ease;}
 
+.gallery-track.fade {
+  opacity: 0;
+}
   .gallery-arrow {
     width: 36px;
     height: 36px;

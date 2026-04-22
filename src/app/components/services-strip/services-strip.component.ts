@@ -10,14 +10,14 @@ import { CommonModule } from '@angular/common';
 })
 export class ServicesStripComponent {
   services = [
-    'Precision Haircuts',
-    'Keratin Treatments',
-    'Bridal Styling',
-    'Color Correction',
-    'Deep Conditioning',
-    'Blow Dry & Finish',
-    'Extensions',
-    'Scalp Therapy',
+    'Spa Facial',
+    'Skin Fade',
+    'Tuns clasic ',
+    'Aranjat barba',
+    'Tuns la urgenta',
+    'Tuns copiii(6-12ani)',
+    'Pachet ZetMen',
+    'Pachet ZetMen Deluxe',
   ];
 
   // Duplicate for seamless infinite marquee
