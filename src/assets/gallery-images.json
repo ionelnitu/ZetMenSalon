@@ -1,219 +1,169 @@
 [
   {
     "src": "assets/gallery/picture1.jpeg",
-    "alt": "Eveniment barbering",
-    "event": "Campionat Național de Barbering",
-    "location": "București",
-    "year": "2024"
+    "alt": "MenSpire",
+    "event": "Luca Perillo - MenSpire",
+    "location": "Birmingham",
+    "year": "Barber Connect 2025"
   },
   {
     "src": "assets/gallery/picture2.jpeg",
-    "alt": "Eveniment barbering",
-    "event": "Campionat Național de Barbering",
-    "location": "București",
-    "year": "2024"
+    "alt": "Fade Accademy",
+    "event": "Fade Accademy Education - Seminar",
+    "location": "Ciprain Ungureanu - București",
+    "year": "2025"
   },
   {
     "src": "assets/gallery/picture3.jpeg",
-    "alt": "Eveniment barbering",
-    "event": "Campionat Național de Barbering",
-    "location": "București",
-    "year": "2024"
-  },
-  {
-    "src": "assets/gallery/picture4.jpeg",
-    "alt": "Eveniment barbering",
-    "event": "Campionat Național de Barbering",
-    "location": "București",
-    "year": "2024"
-  },
-  {
-    "src": "assets/gallery/picture5.jpeg",
-    "alt": "Eveniment barbering",
-    "event": "Campionat Național de Barbering",
-    "location": "București",
-    "year": "2024"
+    "alt": "Fade Accademy",
+    "event": "Fade Accademy Education - Seminar",
+    "location": "Ady Ramses - București",
+    "year": "2025"
   },
   {
     "src": "assets/gallery/picture6.jpeg",
-    "alt": "Eveniment barbering",
-    "event": "Campionat Național de Barbering",
-    "location": "București",
-    "year": "2024"
+    "alt": "Salon International",
+    "event": "Salon International",
+    "location": "Jeffrey Batista - London",
+    "year": "2025"
   },
   {
     "src": "assets/gallery/picture7.jpeg",
-    "alt": "Eveniment barbering",
-    "event": "Campionat Național de Barbering",
-    "location": "București",
-    "year": "2024"
+    "alt": "Salon International",
+    "event": "Salon International",
+    "location": "Haser Maher - London",
+    "year": "2025"
   },
   {
     "src": "assets/gallery/picture8.jpeg",
-    "alt": "Eveniment barbering",
-    "event": "Campionat Național de Barbering",
-    "location": "București",
-    "year": "2024"
+    "alt": "Salon International",
+    "event": "Salon International",
+    "location": "Ollie Foster - London",
+    "year": "2025"
   },
   {
     "src": "assets/gallery/picture9.jpeg",
-    "alt": "Eveniment barbering",
-    "event": "Campionat Național de Barbering",
-    "location": "București",
-    "year": "2024"
-  },
-  {
-    "src": "assets/gallery/picture10.jpeg",
-    "alt": "Eveniment barbering",
-    "event": "Campionat Național de Barbering",
-    "location": "București",
-    "year": "2024"
+    "alt": "Salon International",
+    "event": "Salon International",
+    "location": "Brodie Raeside - London",
+    "year": "2025"
   },
   {
     "src": "assets/gallery/picture11.jpeg",
-    "alt": "Eveniment barbering",
-    "event": "Campionat Național de Barbering",
-    "location": "București",
-    "year": "2024"
+    "alt": "Menspire Academy",
+    "event": "Menspire Academy",
+    "location": "Josh Lamonaca - St. Albans",
+    "year": "2025"
   },
   {
     "src": "assets/gallery/picture12.jpeg",
-    "alt": "Eveniment barbering",
-    "event": "Campionat Național de Barbering",
-    "location": "București",
-    "year": "2024"
-  },
-  {
-    "src": "assets/zetmen/picture1.jpeg",
-    "alt": "Salon ZETMEN",
-    "event": "ZETMEN — Male Image & Grooming",
-    "location": "Brașov",
-    "year": "2024"
-  },
-  {
-    "src": "assets/zetmen/picture4.jpeg",
-    "alt": "Salon ZETMEN",
-    "event": "ZETMEN — Male Image & Grooming",
-    "location": "Brașov",
-    "year": "2024"
-  },
-  {
-    "src": "assets/zetmen/picture5.jpeg",
-    "alt": "Salon ZETMEN",
-    "event": "ZETMEN — Male Image & Grooming",
-    "location": "Brașov",
-    "year": "2024"
-  },
-  {
-    "src": "assets/zetmen/picture6.jpeg",
-    "alt": "Salon ZETMEN",
-    "event": "ZETMEN — Male Image & Grooming",
-    "location": "Brașov",
-    "year": "2024"
-  },
-  {
-    "src": "assets/zetmen/picture7.jpeg",
-    "alt": "Salon ZETMEN",
-    "event": "ZETMEN — Male Image & Grooming",
-    "location": "Brașov",
-    "year": "2024"
-  },
-  {
-    "src": "assets/zetmen/picture8.jpeg",
-    "alt": "Salon ZETMEN",
-    "event": "ZETMEN — Male Image & Grooming",
-    "location": "Brașov",
-    "year": "2024"
-  },
-  {
-    "src": "assets/zetmen/picture9.jpeg",
-    "alt": "Salon ZETMEN",
-    "event": "ZETMEN — Male Image & Grooming",
-    "location": "Brașov",
-    "year": "2024"
-  },
-  {
-    "src": "assets/gallery/picture10.jpeg",
-    "alt": "Salon ZETMEN",
-    "event": "ZETMEN — Male Image & Grooming",
-    "location": "Brașov",
-    "year": "2024"
-  },
-  {
-    "src": "assets/gallery/picture11.jpeg",
-    "alt": "Salon ZETMEN",
-    "event": "ZETMEN — Male Image & Grooming",
-    "location": "Brașov",
-    "year": "2024"
-  },
-  {
-    "src": "assets/gallery/picture12.jpeg",
-    "alt": "Salon ZETMEN",
-    "event": "ZETMEN — Male Image & Grooming",
-    "location": "Brașov",
-    "year": "2024"
+    "alt": "Menspire Academy",
+    "event": "Menspire Academy",
+    "location": "Josh, Jeff, Sheil - St. Albans",
+    "year": "2025"
   },
   {
     "src": "assets/gallery/picture13.jpeg",
     "alt": "Salon ZETMEN",
     "event": "ZETMEN — Male Image & Grooming",
-    "location": "Brașov",
-    "year": "2024"
-  },
-  {
+    "location": "Rugby - UK",
+    "year": "2025"
+  },{
     "src": "assets/gallery/picture14.jpeg",
-    "alt": "Salon ZETMEN",
-    "event": "ZETMEN — Male Image & Grooming",
-    "location": "Brașov",
-    "year": "2024"
+    "alt": "Cognitive Academy",
+    "event": "Seminar Cognitive Academy",
+    "location": "Sean Moore - London",
+    "year": "2025"
   },
   {
     "src": "assets/gallery/picture15.jpeg",
     "alt": "Salon ZETMEN",
-    "event": "ZETMEN — Male Image & Grooming",
-    "location": "Brașov",
-    "year": "2024"
-  },
-  {
-    "src": "assets/gallery/picture16.jpeg",
-    "alt": "Salon ZETMEN",
-    "event": "ZETMEN — Male Image & Grooming",
-    "location": "Brașov",
-    "year": "2024"
-  },
-  {
-    "src": "assets/gallery/picture17.jpeg",
-    "alt": "Salon ZETMEN",
-    "event": "ZETMEN — Male Image & Grooming",
-    "location": "Brașov",
-    "year": "2024"
+    "event": "Inspire Barber Academy",
+    "location": "Seminar One-To-One - Brașov",
+    "year": "2025"
   },
   {
     "src": "assets/gallery/picture18.jpeg",
     "alt": "Salon ZETMEN",
-    "event": "ZETMEN — Male Image & Grooming",
-    "location": "Brașov",
-    "year": "2024"
-  },
-  {
-    "src": "assets/gallery/picture19.jpeg",
-    "alt": "Salon ZETMEN",
-    "event": "ZETMEN — Male Image & Grooming",
-    "location": "Brașov",
-    "year": "2024"
-  },
-  {
-    "src": "assets/gallery/picture20.jpeg",
-    "alt": "Salon ZETMEN",
-    "event": "ZETMEN — Male Image & Grooming",
-    "location": "Brașov",
-    "year": "2024"
+    "event": "Inspire Barber Academy",
+    "location": "George Hali - Seminar One-To-One - Brașov",
+    "year": "2026"
   },
   {
     "src": "assets/gallery/picture21.jpeg",
     "alt": "Salon ZETMEN",
+    "event": "Schwarzkopf Academy - Seminar Coloristică",
+    "location": "Mihai V. Drinceanu - București",
+    "year": "2026"
+  },
+  {
+    "src": "assets/gallery/picture20.jpeg",
+    "alt": "Salon ZETMEN",
+    "event": "Schwarzkopf Academy - Seminar Coloristică",
+    "location": "București",
+    "year": "2026"
+  },
+  {
+    "src": "assets/gallery/picture22.jpeg",
+    "alt": "Salon ZETMEN",
+    "event": "Schwarzkopf Academy - Seminar Coloristică",
+    "location": "Roymer Bolivar - București",
+    "year": "2026"
+  },
+  {
+    "src": "assets/gallery/picture23.jpeg",
+    "alt": "Salon ZETMEN",
+    "event": "Schwarzkopf Academy - Seminar Coloristică",
+    "location": "Liviu Manolache - București",
+    "year": "2026"
+  },
+  {
+    "src": "assets/gallery/picture25.jpeg",
+    "alt": "Salon ZETMEN",
     "event": "ZETMEN — Male Image & Grooming",
     "location": "Brașov",
-    "year": "2024"
+    "year": "2026"
+  },
+  {
+    "src": "assets/gallery/picture26.jpeg",
+    "alt": "Salon ZETMEN",
+    "event": "ZETMEN — Male Image & Grooming",
+    "location": "Brașov",
+    "year": "2026"
+  },
+  {
+    "src": "assets/gallery/picture27.jpeg",
+    "alt": "Salon ZETMEN",
+    "event": "ZETMEN — Male Image & Grooming",
+    "location": "Brașov",
+    "year": "2026"
+  },
+  {
+    "src": "assets/gallery/picture28.jpeg",
+    "alt": "Salon ZETMEN",
+    "event": "ZETMEN — Male Image & Grooming",
+    "location": "Brașov",
+    "year": "2026"
+  },
+  {
+    "src": "assets/gallery/picture29.jpeg",
+    "alt": "Salon ZETMEN",
+    "event": "ZETMEN — Male Image & Grooming",
+    "location": "Brașov",
+    "year": "2026"
+  },
+  {
+    "src": "assets/gallery/picture30.jpeg",
+    "alt": "Salon ZETMEN",
+    "event": "ZETMEN — Male Image & Grooming",
+    "location": "Brașov",
+    "year": "2026"
+  },
+  {
+    "src": "assets/gallery/picture32.jpeg",
+    "alt": "Salon ZETMEN",
+    "event": "ZETMEN — Male Image & Grooming",
+    "location": "Brașov",
+    "year": "2026"
   }
 ]
