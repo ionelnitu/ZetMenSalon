@@ -30,7 +30,7 @@ export class FindUsComponent implements AfterViewInit {
     {
       icon: '🕐',
       label: 'Program',
-      value: 'Mar–Vin:11:00-20:00<br> Sâm: 09:00-16:00 <br> Dum-Lun: Închis',
+      value: 'Mar–Vin:11:00-20:00<br> Sâm: 11:00-16:00 <br> Dum-Lun: Închis',
     },
     {
       icon: '📞',
