@@ -2,6 +2,7 @@
 <div class="mobile-menu" [class.open]="menuOpen()">
   <button class="mobile-close" (click)="closeMenu()">✕</button>
   <a routerLink="/prices" (click)="closeMenu()">Prices</a>
+  <a routerLink="/products" (click)="closeMenu()">Products</a>
   <a [routerLink]="['/about-me']" fragment="ceo"(click)="closeMenu()">About</a>
   <a routerLink="/" fragment="find-us" (click)="closeMenu()">Find Us</a>
   <a routerLink="/" class="mobile-cta" (click)="closeMenu()">Book Now</a>
