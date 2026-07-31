@@ -32,7 +32,7 @@ export class ProductsComponent implements OnInit {
   activeCategory = signal('toate');
 
   // numarul de telefon WhatsApp al salonului
-  readonly WHATSAPP_NUMBER = '0779219100'; // ← înlocuiește cu numărul real
+  readonly WHATSAPP_NUMBER = '+40779219100'; // ← înlocuiește cu numărul real
 
   categories = [
     { key: 'toate',    label: 'Toate'     },
