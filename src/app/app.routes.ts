@@ -4,7 +4,7 @@ import { HomeComponent } from './home.component';
 import { PrivacyComponent } from './components/privacy/privacy.component';
 import { CeoComponent } from './components/ceo/ceo.component';
 import { Component } from '@angular/core';
-import { ProductsComponent } from './products/products.component';
+import { ProductsComponent } from './components/products/products.component';
 
 
 export const routes: Routes = [

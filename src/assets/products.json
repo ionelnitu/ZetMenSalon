@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Șampon pentru bărbați",
+    "brand": "ZetMen",
+    "category": "sampon",
+    "price": 65,
+    "description": "Șampon cu formulă activă pentru curățare profundă. Ideal pentru folosire zilnică, menține scalpul sănătos și părul hidratat.",
+    "image": "assets/products/shampoo.png",
+    "available": true
+  },
+  {
+    "id": 2,
+    "name": "Conditioner",
+    "brand": "ZetMen",
+    "category": "sampon",
+    "price": 75,
+    "description": "Ulei natural cu extracte de santal și jojoba. Hidratează intens barba și pielea, elimină mâncărimile și aspectul uscat.",
+    "image": "assets/products/conditioner.png",
+    "available": true
+  },
+  {
+    "id": 3,
+    "name": "Cremă de ras",
+    "brand": "Proraso",
+    "category": "ras",
+    "price": 55,
+    "description": "Cremă cu eucalipt și mentol pentru un ras precis și confortabil. Protejează pielea și previne iritațiile post-ras.",
+    "image": "assets/products/shaving_cream.png",
+    "available": true
+  },
+  {
+    "id": 4,
+    "name": "After shave balsam",
+    "brand": "Proraso",
+    "category": "ras",
+    "price": 69,
+    "description": "Balsam after shave cu aloe vera și vitamina E. Calmează pielea iritată, hidratează și lasă un miros proaspăt discret.",
+    "image": "assets/products/aftershave.png",
+    "available": true
+  }
+]
